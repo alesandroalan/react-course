@@ -27,9 +27,21 @@ var Title = React.createClass({
 });
 
 var Button = React.createClass({
+	getInitialState: function(){
+		return {
+			click: false
+		};
+	},
+	toggleClick: function(){
+		this.setState({
+			click = !this.state.click
+		});	
+	},
 	render: function(){
+		var btnClass = this.state.click ? 'btn btn-warning' : 'btn btn-success';
+		var title = this.state.click ? this.props.textActive : this.props.title;
 		return (
-			<button className="btn btn-default">My button</button>
+			<button onClick={ this.toggleClick } className={ btnClass }>{ title }</button>
 		);
 	}
 
@@ -46,6 +58,6 @@ ReactDOM.render(
 );
 
 ReactDOM.render(
-    <Button />,
+    <Button title="Your Button" textActive="Loading..." />,
     document.getElementById('button')
 );
