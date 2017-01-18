@@ -64,6 +64,14 @@ var Form = React.createClass({
 					<input type="email" className="form-control" id="email" placeholder="E-mail"></input>
 				</div>
 				<div className="form-group">
+					<label htmlFor="subject" style={ labelStyle }>Assunto</label>
+					<select className="form-control" id="subject" defaultValue="R">
+						<option value="A">AngularJS</option>
+						<option value="J">JQuery</option>
+						<option value="R">React</option>
+					</select>
+				</div>				
+				<div className="form-group">
 					<label htmlFor="messenger" style={ labelStyle }>Mensagem</label>
 					<textarea className="form-control" id="messenger" rows="3"></textarea>
 				</div>

@@ -103,6 +103,34 @@ var Form = React.createClass({
 				{ className: "form-group" },
 				React.createElement(
 					"label",
+					{ htmlFor: "subject", style: labelStyle },
+					"Assunto"
+				),
+				React.createElement(
+					"select",
+					{ className: "form-control", id: "subject", defaultValue: "R" },
+					React.createElement(
+						"option",
+						{ value: "A" },
+						"AngularJS"
+					),
+					React.createElement(
+						"option",
+						{ value: "J" },
+						"JQuery"
+					),
+					React.createElement(
+						"option",
+						{ value: "R" },
+						"React"
+					)
+				)
+			),
+			React.createElement(
+				"div",
+				{ className: "form-group" },
+				React.createElement(
+					"label",
 					{ htmlFor: "messenger", style: labelStyle },
 					"Mensagem"
 				),
