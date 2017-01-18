@@ -4,10 +4,14 @@ var Page = React.createClass({
 				<customElement>
 					<Nav title="React" linkUrl="index.html" />
 					<div className="container">
-						<Title title="My component Title!" />
+						<Title>
+							My component Title!
+						</Title>
 						<div className="row">
 							<Form />
-							<Button title="Send" textActive="Sending..." />
+							<Button textActive="Sending...">
+								Send
+							</Button>
 						</div>
 					</div>
 				</customElement>

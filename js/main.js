@@ -11,12 +11,20 @@ var Page = React.createClass({
 			React.createElement(
 				"div",
 				{ className: "container" },
-				React.createElement(Title, { title: "My component Title!" }),
+				React.createElement(
+					Title,
+					null,
+					"My component Title!"
+				),
 				React.createElement(
 					"div",
 					{ className: "row" },
 					React.createElement(Form, null),
-					React.createElement(Button, { title: "Send", textActive: "Sending..." })
+					React.createElement(
+						Button,
+						{ textActive: "Sending..." },
+						"Send"
+					)
 				)
 			)
 		);

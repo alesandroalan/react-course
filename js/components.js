@@ -37,7 +37,7 @@ var Title = React.createClass({
 			React.createElement(
 				"h1",
 				{ style: titleStyle },
-				this.props.title
+				this.props.children
 			)
 		);
 	}
@@ -58,7 +58,7 @@ var Button = React.createClass({
 	},
 	render: function render() {
 		var btnClass = this.state.click ? 'btn btn-warning' : 'btn btn-success';
-		var title = this.state.click ? this.props.textActive : this.props.title;
+		var title = this.state.click ? this.props.textActive : this.props.children;
 		return React.createElement(
 			"button",
 			{ onClick: this.toggleClick, className: btnClass },
