@@ -139,3 +139,96 @@ var Form = React.createClass({
 		);
 	}
 });
+
+var Contact = React.createClass({
+	displayName: "Contact",
+
+	render: function render() {
+		return React.createElement(
+			"tr",
+			null,
+			React.createElement(
+				"th",
+				{ scope: "row" },
+				this.props.idContact
+			),
+			React.createElement(
+				"td",
+				null,
+				this.props.name
+			),
+			React.createElement(
+				"td",
+				null,
+				this.props.email
+			),
+			React.createElement(
+				"td",
+				null,
+				this.props.subject
+			),
+			React.createElement(
+				"td",
+				null,
+				this.props.children
+			)
+		);
+	}
+});
+
+var List = React.createClass({
+	displayName: "List",
+
+	render: function render() {
+		var contactNodes = this.props.data.map(function (contact) {
+			return React.createElement(
+				Contact,
+				{ idContact: contact.id, name: contact.name, email: contact.email,
+					subject: contact.subject },
+				contact.messenger
+			);
+		});
+		return React.createElement(
+			"table",
+			{ className: "table" },
+			React.createElement(
+				"thead",
+				null,
+				React.createElement(
+					"tr",
+					null,
+					React.createElement(
+						"th",
+						null,
+						"Id"
+					),
+					React.createElement(
+						"th",
+						null,
+						"Name"
+					),
+					React.createElement(
+						"th",
+						null,
+						"E-mail"
+					),
+					React.createElement(
+						"th",
+						null,
+						"Assunto"
+					),
+					React.createElement(
+						"th",
+						null,
+						"Messenger"
+					)
+				)
+			),
+			React.createElement(
+				"tbody",
+				null,
+				contactNodes
+			)
+		);
+	}
+});
