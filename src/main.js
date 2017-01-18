@@ -6,7 +6,8 @@ var Page = React.createClass({
 					<div className="container">
 						<Title title="My component Title!" />
 						<div className="row">
-							<Button title="Your Button" textActive="Loading..." />
+							<Form />
+							<Button title="Send" textActive="Sending..." />
 						</div>
 					</div>
 				</customElement>

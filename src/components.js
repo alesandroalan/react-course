@@ -44,3 +44,24 @@ var Button = React.createClass({
 	}
 
 });
+
+var Form = React.createClass({
+	render: function(){
+		return (
+			<form>
+				<div className="form-group">
+					<label htmlFor="name">Name</label>
+					<input type="text" className="form-control" id="name" placeholder="Name"></input>
+				</div>
+				<div className="form-group">
+					<label htmlFor="email">E-mail</label>
+					<input type="email" className="form-control" id="email" placeholder="E-mail"></input>
+				</div>
+				<div className="form-group">
+					<label htmlFor="messenger">Mensagem</label>
+					<textarea className="form-control" id="messenger" rows="3"></textarea>
+				</div>
+			</form>
+		);
+	}
+});
