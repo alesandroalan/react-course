@@ -17,10 +17,8 @@ var Nav = React.createClass({
 var Title = React.createClass({
 	render:function(){
 		return (
-			<div className="container">
-				<div className="row">
-					<h1>{this.props.title}</h1>
-				</div>
+			<div className="row">
+				<h1>{this.props.title}</h1>
 			</div>
 		);
 	}
@@ -34,7 +32,7 @@ var Button = React.createClass({
 	},
 	toggleClick: function(){
 		this.setState({
-			click = !this.state.click
+			click: !this.state.click
 		});	
 	},
 	render: function(){
@@ -47,17 +45,23 @@ var Button = React.createClass({
 
 });
 
-ReactDOM.render(
-    <Nav title="React" linkUrl="index.html" />,
-    document.getElementById('nav')
-);
+var Page = React.createClass({
+		render: function(){
+			return (
+				<customElement>
+					<Nav title="React" linkUrl="index.html" />
+					<div className="container">
+						<Title title="My component Title!" />
+						<div className="row">
+							<Button title="Your Button" textActive="Loading..." />
+						</div>
+					</div>
+				</customElement>
+			);
+		}
+});
 
 ReactDOM.render(
-    <Title title="My component Title!" />,
-    document.getElementById('title')
-);
-
-ReactDOM.render(
-    <Button title="Your Button" textActive="Loading..." />,
-    document.getElementById('button')
+    <Page />,
+    document.getElementById('page')
 );

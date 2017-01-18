@@ -30,15 +30,11 @@ var Title = React.createClass({
 	render: function render() {
 		return React.createElement(
 			"div",
-			{ className: "container" },
+			{ className: "row" },
 			React.createElement(
-				"div",
-				{ className: "row" },
-				React.createElement(
-					"h1",
-					null,
-					this.props.title
-				)
+				"h1",
+				null,
+				this.props.title
 			)
 		);
 	}
@@ -47,18 +43,48 @@ var Title = React.createClass({
 var Button = React.createClass({
 	displayName: "Button",
 
+	getInitialState: function getInitialState() {
+		return {
+			click: false
+		};
+	},
+	toggleClick: function toggleClick() {
+		this.setState({
+			click: !this.state.click
+		});
+	},
 	render: function render() {
+		var btnClass = this.state.click ? 'btn btn-warning' : 'btn btn-success';
+		var title = this.state.click ? this.props.textActive : this.props.title;
 		return React.createElement(
 			"button",
-			{ className: "btn btn-default" },
-			"My button"
+			{ onClick: this.toggleClick, className: btnClass },
+			title
 		);
 	}
 
 });
 
-ReactDOM.render(React.createElement(Nav, { title: "React", linkUrl: "index.html" }), document.getElementById('nav'));
+var Page = React.createClass({
+	displayName: "Page",
 
-ReactDOM.render(React.createElement(Title, { title: "My component Title!" }), document.getElementById('title'));
+	render: function render() {
+		return React.createElement(
+			"customElement",
+			null,
+			React.createElement(Nav, { title: "React", linkUrl: "index.html" }),
+			React.createElement(
+				"div",
+				{ className: "container" },
+				React.createElement(Title, { title: "My component Title!" }),
+				React.createElement(
+					"div",
+					{ className: "row" },
+					React.createElement(Button, { title: "Your Button", textActive: "Loading..." })
+				)
+			)
+		);
+	}
+});
 
-ReactDOM.render(React.createElement(Button, null), document.getElementById('button'));
+ReactDOM.render(React.createElement(Page, null), document.getElementById('page'));
