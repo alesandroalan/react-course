@@ -16,9 +16,12 @@ var Nav = React.createClass({
 
 var Title = React.createClass({
 	render:function(){
+		var titleStyle = {
+			color: "#607D8B"
+		};
 		return (
 			<div className="row">
-				<h1>{this.props.title}</h1>
+				<h1 style={ titleStyle }>{this.props.title}</h1>
 			</div>
 		);
 	}
@@ -47,18 +50,21 @@ var Button = React.createClass({
 
 var Form = React.createClass({
 	render: function(){
+		var labelStyle = {
+			color: "#607D8B"
+		};
 		return (
 			<form>
 				<div className="form-group">
-					<label htmlFor="name">Name</label>
+					<label htmlFor="name" style={ labelStyle }>Name</label>
 					<input type="text" className="form-control" id="name" placeholder="Name"></input>
 				</div>
 				<div className="form-group">
-					<label htmlFor="email">E-mail</label>
+					<label htmlFor="email" style={ labelStyle }>E-mail</label>
 					<input type="email" className="form-control" id="email" placeholder="E-mail"></input>
 				</div>
 				<div className="form-group">
-					<label htmlFor="messenger">Mensagem</label>
+					<label htmlFor="messenger" style={ labelStyle }>Mensagem</label>
 					<textarea className="form-control" id="messenger" rows="3"></textarea>
 				</div>
 			</form>

@@ -28,12 +28,15 @@ var Title = React.createClass({
 	displayName: "Title",
 
 	render: function render() {
+		var titleStyle = {
+			color: "#607D8B"
+		};
 		return React.createElement(
 			"div",
 			{ className: "row" },
 			React.createElement(
 				"h1",
-				null,
+				{ style: titleStyle },
 				this.props.title
 			)
 		);
@@ -69,6 +72,9 @@ var Form = React.createClass({
 	displayName: "Form",
 
 	render: function render() {
+		var labelStyle = {
+			color: "#607D8B"
+		};
 		return React.createElement(
 			"form",
 			null,
@@ -77,7 +83,7 @@ var Form = React.createClass({
 				{ className: "form-group" },
 				React.createElement(
 					"label",
-					{ htmlFor: "name" },
+					{ htmlFor: "name", style: labelStyle },
 					"Name"
 				),
 				React.createElement("input", { type: "text", className: "form-control", id: "name", placeholder: "Name" })
@@ -87,7 +93,7 @@ var Form = React.createClass({
 				{ className: "form-group" },
 				React.createElement(
 					"label",
-					{ htmlFor: "email" },
+					{ htmlFor: "email", style: labelStyle },
 					"E-mail"
 				),
 				React.createElement("input", { type: "email", className: "form-control", id: "email", placeholder: "E-mail" })
@@ -97,7 +103,7 @@ var Form = React.createClass({
 				{ className: "form-group" },
 				React.createElement(
 					"label",
-					{ htmlFor: "messenger" },
+					{ htmlFor: "messenger", style: labelStyle },
 					"Mensagem"
 				),
 				React.createElement("textarea", { className: "form-control", id: "messenger", rows: "3" })
