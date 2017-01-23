@@ -49,23 +49,52 @@ var Button = React.createClass({
 });
 
 var Form = React.createClass({
+	getInitialState: function(){
+		return{name:'',email:'',subject:'R',messenger:''}
+	},
+	handleNameChange: function(e){
+		this.setState({name: e.target.value});
+	},
+	handleEmailChange: function(e){
+		this.setState({email: e.target.value});
+	},
+	handleSubjectChange: function(e){
+		this.setState({subject: e.target.value});
+	},
+	handleMessengerChange: function(e){
+		this.setState({messenger: e.target.value});
+	},
+	handleSubmit: function(e){
+		e.preventDefault();
+		var name = this.state.name.trim();
+		var email = this.state.email.trim();
+		var subject = this.state.subject;
+		var messenger = this.state.messenger.trim();
+
+		if(!name || !email || !subject || !messenger){
+			alert("Verifique todos os campos novamente!");
+			return;
+		}
+
+		this.props.onContactSubmit({id:this.props.idNumber,email:email,name:name,subject:subject,messenger:messenger});
+	},
 	render: function(){
 		var labelStyle = {
 			color: "#607D8B"
 		};
 		return (
-			<form>
+			<form onSubmit={this.handleSubmit}>
 				<div className="form-group">
 					<label htmlFor="name" style={ labelStyle }>Name</label>
-					<input type="text" className="form-control" id="name" placeholder="Name"></input>
+					<input type="text" className="form-control" id="name" onChange={this.handleNameChange} placeholder="Name"></input>
 				</div>
 				<div className="form-group">
 					<label htmlFor="email" style={ labelStyle }>E-mail</label>
-					<input type="email" className="form-control" id="email" placeholder="E-mail"></input>
+					<input type="email" className="form-control" id="email" placeholder="E-mail" onChange={this.handleEmailChange}></input>
 				</div>
 				<div className="form-group">
 					<label htmlFor="subject" style={ labelStyle }>Assunto</label>
-					<select className="form-control" id="subject" defaultValue="R">
+					<select className="form-control" id="subject" defaultValue={this.state.subject} onChange={this.handleSubjectChange}>
 						<option value="A">AngularJS</option>
 						<option value="J">JQuery</option>
 						<option value="R">React</option>
@@ -73,8 +102,11 @@ var Form = React.createClass({
 				</div>				
 				<div className="form-group">
 					<label htmlFor="messenger" style={ labelStyle }>Mensagem</label>
-					<textarea className="form-control" id="messenger" rows="3"></textarea>
+					<textarea className="form-control" id="messenger" rows="3" onKeyUp={this.handleMessengerChange}></textarea>
 				</div>
+				<Button textActive="Sending...">
+					Send
+				</Button>
 			</form>
 		);
 	}
